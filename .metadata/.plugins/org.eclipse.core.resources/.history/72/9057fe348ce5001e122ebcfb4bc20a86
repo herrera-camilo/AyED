@@ -1,0 +1,17 @@
+
+public class EJE1 {
+
+	public static void main(String[] args) {
+		int a = 1;
+		int b= 7;	
+		imprimirConFor(a,b);
+
+	}
+	
+	public static void imprimirConFor(int a, int b) {
+		for (int i = a; i<=b;i++) {
+			System.out.println(i);
+		}
+	}
+
+}
