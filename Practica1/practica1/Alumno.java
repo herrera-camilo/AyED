@@ -48,6 +48,9 @@ public class Alumno {
 		this.nombre = nombre;
 	}
 
-
-
+	public void esArgentino () {
+		String nacionalidad = "Argentino";
+		System.out.println("Si soy " + nacionalidad);
+	}
+	
 }

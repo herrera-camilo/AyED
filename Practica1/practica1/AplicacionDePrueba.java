@@ -28,9 +28,10 @@ public class AplicacionDePrueba {
          arrAlumnos[1].setEmail(new String("feli_p_p@homail.com"));
          
          if (args.length  == 0){
-        	 System.out.println("El programa se ejecutó sin parametros");
+        	 System.out.println("El programa se ejecutÃ³ sin parametros");
         	 }
          else if (args.length == 1) {
+        	 System.out.print("Datos del alumno en la posicion: ");
         	 System.out.print("Datos del alumno en la posicion: ");
         	 System.out.println(Integer.parseInt(args[0]));
         	 System.out.println("----------------------------------");
@@ -39,6 +40,7 @@ public class AplicacionDePrueba {
         	 System.out.println(arrAlumnos[Integer.parseInt(args[0])].getApellido());
         	 System.out.println(arrAlumnos[Integer.parseInt(args[0])].getNombre());
         	 System.out.println(arrAlumnos[Integer.parseInt(args[0])].getEmail());
+        	 
         	 }
 	}
 
