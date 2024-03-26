@@ -16,8 +16,9 @@ public class EJE5 {
 		
 		System.out.println("-------------------------------------------------------------");
 		
-		// B)
+		// B) seria igual que el c? no se, preguntar
 		
+	
 		
 		// C)
 		int[] vecC = vectorEnteros;
