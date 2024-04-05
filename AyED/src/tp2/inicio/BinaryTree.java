@@ -1,5 +1,10 @@
 package tp2.inicio;
 
+import java.util.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
+
 public class BinaryTree <T> {
 	
 	private T data;
@@ -57,6 +62,9 @@ public class BinaryTree <T> {
 		return (this.isLeaf() && this.getData() == null);
 	}
 
+	
+	// aca te dice si es una hoja, o sea una hoja en un árbol binario es un nodo que no tiene hijos 
+	// ni derecho ni izquierdo
 	public boolean isLeaf() {
 		return (!this.hasLeftChild() && !this.hasRightChild());
 
@@ -75,21 +83,66 @@ public class BinaryTree <T> {
 	}
 
 	public  int contarHojas() {
-	   
-		return 0;
+		int leftCount = 0;
+		int rightCount = 0;
+		if(this.isEmpty())
+			return 0;
+		else 
+			if(this.isLeaf())
+				return 1;
+			else {
+				if(this.hasLeftChild())
+					leftCount = this.getLeftChild().contarHojas();
+				if(this.hasRightChild())
+					rightCount = this.getRightChild().contarHojas();
+				return leftCount + rightCount;
+			}
 	}
 		
 		
     	 
     public BinaryTree<T> espejo(){
-		       		  
- 	   return null;
+    	BinaryTree<T> abEspejo = new BinaryTree<T>(this.getData()); // con el getdata pongo la raiz en el espejo
+    	
+    	if(this.hasLeftChild())
+    		abEspejo.addRightChild(this.getLeftChild().espejo());
+    	if(this.hasRightChild())
+    		abEspejo.addLeftChild(this.getRightChild().espejo());
+ 	   return abEspejo;
     }
-
+    
 	// 0<=n<=m
 	public void entreNiveles(int n, int m){
+		if (this.isEmpty() || n < 0 || m < n) return;
+		Queue<BinaryTree<T>> cola = new LinkedList<>();
+		cola.add(this);
 		
-   }
+		int nivelActual = 0;
 		
+		while(!cola.isEmpty()) {
+			int nivel = cola.size();
+			if(nivelActual >=n && nivelActual <= m) {
+				for(int i=0; i<nivel; i++) {
+					BinaryTree<T> nodo = cola.remove();
+					System.out.print(nodo.getData() + " | ");
+					if(nodo.hasLeftChild())
+						cola.add(nodo.getLeftChild());
+					if(nodo.hasRightChild());
+						cola.add(nodo.getRightChild());
+				}
+			} else {
+				for(int i= 0; i< nivel; i++) {
+					cola.remove();
+				}
+			}
+			nivelActual++;
+		}
+		
+	}
+	
+	
+	
+	
+	
 }
 
