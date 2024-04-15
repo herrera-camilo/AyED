@@ -138,8 +138,19 @@ public class BinaryTree <T> {
 		}
 	}
 	
+	public void imprimirArbol() {
+        if(this.hasLeftChild()) this.getLeftChild().imprimirArbol();
+        System.out.print(this.getData() + " ");
+        if(this.hasRightChild()) this.getRightChild().imprimirArbol();
+    }
 	
-	
-	
+	public void imprimirArbolPreOrden(BinaryTree<Integer> nodo) {
+	    if (nodo == null) {
+	        return;
+	    }
+	    System.out.print(nodo.getData() + " ");
+	    imprimirArbolPreOrden(nodo.getLeftChild());
+	    imprimirArbolPreOrden(nodo.getRightChild());
+	}
 }
 
